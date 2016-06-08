@@ -1,22 +1,8 @@
-// if the module has no dependencies, the above pattern can be simplified to
-(function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define([], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        // Node. Does not work with strict CommonJS, but
-        // only CommonJS-like environments that support module.exports,
-        // like Node.
-        module.exports = factory();
-    } else {
-        // Browser globals (root is window)
-        root.ZLImage = factory();
-    }
-}(window, function () {
+window.ZLImage = (function () {
 
     var zlimageLock = false;
 
-    function ZLImage(images) {
+    function __constructor(images) {
         var arr = [];
 
         // detect IE8 one way or another
@@ -158,7 +144,7 @@
 
 
     return {
-        init: ZLImage,
+        init: __constructor,
         lock: zlimageLock
     }
-}));
+})();
