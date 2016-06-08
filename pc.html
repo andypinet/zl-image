@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />  
   <title>Document</title>
+    <!-- polyfill -->
     <script>
         (function() {
             var lastTime = 0;
@@ -42,10 +43,15 @@
         }
     </style>
     <link rel="stylesheet" href="zl-image/css/index.css">
+    <script src="zl-image/js/index.js"></script>
 </head>
 <body>
+    <!-- 你必须自己添加一个fallback background-color -->
     <div class="zl-image" style="width:800px; height:576px; background-color:#D3DBE6;">
         <img class="zl-image-trueimage full-parent"  data-src="images/wallhaven-387383.jpg" data-imagetype="origin">
+        <img class="zl-image-antimoderate full-parent"
+             src="data:image/jpg;base64, /9j/4AAQSkZJRgABAQEASABIAAD/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzA2NyA3OS4xNTc3NDcsIDIwMTUvMDMvMzAtMjM6NDA6NDIgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU5MEZBNjRGMjJFODExRTY5NjkyQUVEQTY5MzVDQjE4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU5MEZBNjRFMjJFODExRTY5NjkyQUVEQTY5MzVDQjE4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNBRkRERTdEMjJFMTExRTY5NjkyQUVEQTY5MzVDQjE4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNBRkRERTdFMjJFMTExRTY5NjkyQUVEQTY5MzVDQjE4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgAGQAmAwEiAAIRAQMRAf/EABcAAQEBAQAAAAAAAAAAAAAAAAcGAAX/xAA1EAACAQMCAgUICwAAAAAAAAABAgMABBEFIRIxBhMyQVEHFCI1YXSxwRUjNDZzgYORobLw/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwQC/8QAIBEBAAIBAwUBAAAAAAAAAAAAAQACEQMSIQQTQbHwUf/aAAwDAQACEQMRAD8AibO+v7LUFiiiuVvJTllDHLg8hnOdvA99JdoLy4NtLPO0LEDNzEigBiMMjE9o7j0twc9xFH2g30Q6W2dsBLcP1kUZkJwGywHL/Gl0dHLmIYguhOZXyHfcW6LuFUZxk5xvnmal7Vl3BD6OhV3WMZht0mDtZXMo4GR8IkkcnGrABR2juTnnmuRFqFjCttEltGsYCtPclHZw2+VwDjPgarenGlxaZo/mpl9Cad5RIBwgfWAlcDuAPP2UdQWt8sU0UchhiVTIeJiA+O4eJ8BS0qIjKda+xGvMQbnUrkQW8yNo+m25BCCd+tZs95Xfh5fxitUX1txcW1vbxWM0jwRhWIt2zzJ2xvjf4Vq0aNQx97k71F1z96jFpGk6Xp2oW8+ox2jX8ChlaBAAoIODg7g9rflVgDZOkZtpUjRvSzxc8/Kh3WvX2oe7L8asbD1TB+DB8qqsHiBpuFPycPyjxrH0WtmWVeK3meN+Lclixyv74P5UY3Mk2mpEtpNdIHUMUYgrv7KTvKj92ZPeVqa1b1p+hD/RaC+KISnm4zkdH7696uR/pmwtW7IF2CWIHhgbCtXF1r7c1atmmW5xD7jXif/Z"
+             data-imagetype="default">
     </div>
     <script>
         //    var zlimages = ZLImage.init(document.querySelectorAll('.zl-image'));
