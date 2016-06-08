@@ -20,7 +20,6 @@
 
 .zl-image-opacity {
     opacity: 0;
-    /*z-index: -1;*/
 }
 
 .zl-image.large .zl-image-trueimage {
@@ -48,8 +47,8 @@
 }
 
 /*IE10 and IE11*/
-/*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {*/
-    /*.zl-image-antimoderate {*/
-        /*transition: opacity 1.82s cubic-bezier(0.43, 0.02, 0.61, 1.13);*/
-    /*}*/
-/*}*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .zl-image-antimoderate {
+        transition: opacity 1.82s cubic-bezier(0.43, 0.02, 0.61, 1.13);
+    }
+}

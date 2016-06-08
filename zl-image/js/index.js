@@ -17,12 +17,34 @@ window.ZLImage = (function () {
             isOldIE = true;
         }
 
-        function fadeOut(el){
+        function addEvent(el, eventName, handler) {
+            if (el.addEventListener) {
+                el.addEventListener(eventName, handler, false);
+            } else {
+                el.attachEvent('on' + eventName, function(){
+                    handler.call(el);
+                });
+            }
+        }
+
+        var PrefixedEvent = (function () {
+            var pfx = ["webkit", "moz", "MS", "o", ""];
+            function construct(element, type, callback) {
+                for (var p = 0; p < pfx.length; p++) {
+                    if (!pfx[p]) type = type.toLowerCase();
+                    addEvent(element, pfx[p]+type, callback);
+                }
+            }
+            return construct;
+        })();
+
+        function fadeOut(el, end){
             el.style.opacity = 1;
 
             (function fade() {
                 if ((el.style.opacity -= 0.005) < 0) {
                     el.style.display = "none";
+                    end();
                 } else {
                     requestAnimationFrame(fade);
                 }
@@ -30,11 +52,12 @@ window.ZLImage = (function () {
         }
 
         var ie8opacity = 100;
-        function fadeOutIE8(el){
+        function fadeOutIE8(el, end){
             (function fade() {
                 el.style.filter = "alpha(opacity="+ ie8opacity +")";
                 if ((ie8opacity -= 0.6) < 0) {
                     el.style.display = "none";
+                    end();
                 } else {
                     requestAnimationFrame(fade);
                 }
@@ -108,7 +131,9 @@ window.ZLImage = (function () {
                             };
                         }, 0);
                         setTimeout(function () {
-                            fadeOutIE8(defualtImage);
+                            fadeOutIE8(defualtImage, function () {
+                                defualtImage.style.zIndex = -1;
+                            });
                         }, 52);
                     } else {
                         defualtImage.onload = (function (index) {
@@ -119,11 +144,15 @@ window.ZLImage = (function () {
                             };
                             setTimeout(function () {
                                 if (isOldIE) {
-                                    fadeOut(defualtImage);
+                                    fadeOut(defualtImage, function () {
+                                        defualtImage.style.zIndex = -1;
+                                    });
                                 } else {
                                     addClass(defualtImage, "zl-image-opacity");
+                                    PrefixedEvent(defualtImage, "transitionend", function () {
+                                        console.log("transitionend");
+                                    });
                                 }
-
                             }, 32);
                         })(i);
                     }
