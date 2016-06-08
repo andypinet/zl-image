@@ -7,7 +7,7 @@
 .zl-image-antimoderate {
     opacity: 1;
     transition: opacity 0.72s cubic-bezier(0.43, 0.02, 0.61, 1.13);
-    position: absolute; left:0; top:0; z-index: 1;
+    position: absolute; left:0; top:0;
 }
 
 .zl-image-antimoderate-ie8 {
