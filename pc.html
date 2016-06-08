@@ -70,7 +70,7 @@
         // 隔3.5s 加载一张图片呢
         var index = 1;
         var time = setInterval(function () {
-            if (!window.zlimageLock) {
+            if (!ZLImage.lock) {
                 if (index < zlimages.length) {
                     zlimages[index].show();
                     index++;
