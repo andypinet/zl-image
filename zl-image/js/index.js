@@ -46,7 +46,7 @@ window.ZLImage = (function () {
                     el.style.display = "none";
                     setTimeout(function () {
                         end();
-                    }, 0);
+                    }, 32);
                 } else {
                     requestAnimationFrame(fade);
                 }
@@ -61,7 +61,7 @@ window.ZLImage = (function () {
                     el.style.display = "none";
                     setTimeout(function () {
                         end();
-                    }, 0);
+                    }, 32);
                 } else {
                     requestAnimationFrame(fade);
                 }
