@@ -154,7 +154,7 @@ window.ZLImage = (function () {
                                 } else {
                                     addClass(defualtImage, "zl-image-opacity");
                                     PrefixedEvent(defualtImage, "transitionend", function () {
-                                        console.log("transitionend");
+                                        defualtImage.style.zIndex = -1;
                                     });
                                 }
                             }, 32);
