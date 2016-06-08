@@ -1,0 +1,56 @@
+.zl-image-trueimage {
+    -webkit-filter: blur(6px);
+    transition: -webkit-filter 1.5s cubic-bezier(0.43, 0.02, 0.61, 1.13) 0.62s;
+    will-change: -webkit-filter;
+}
+
+.zl-image-antimoderate {
+    opacity: 1;
+    transition: opacity 0.72s cubic-bezier(0.43, 0.02, 0.61, 1.13);
+    will-change: opacity;
+    position: absolute; left:0; top:0; z-index: 1;
+}
+
+.zl-image-antimoderate-ie8 {
+    position: absolute; left:0; top:0; z-index: 1;
+}
+
+.zl-image-blur {
+    -webkit-filter: blur(0);
+}
+
+.zl-image-opacity {
+    opacity: 0;
+    z-index: -1;
+}
+
+.zl-image.large .zl-image-trueimage {
+    transition: -webkit-filter 1.5s cubic-bezier(0.43, 0.02, 0.61, 1.13) 0.72s;
+}
+
+.zl-image.large  .zl-image-antimoderate {
+    transition: opacity 1.12s cubic-bezier(0.43, 0.02, 0.61, 1.13);
+}
+
+.zl-image .zl-picture {
+    width:100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.zl-image .zl-picture img {
+    width:100%;
+}
+
+.zl-image {
+    position: relative;
+    overflow: hidden;
+}
+
+/*IE10 and IE11*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .zl-image-antimoderate {
+        transition: opacity 1.82s cubic-bezier(0.43, 0.02, 0.61, 1.13);
+    }
+}
