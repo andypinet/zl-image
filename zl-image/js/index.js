@@ -44,7 +44,9 @@ window.ZLImage = (function () {
             (function fade() {
                 if ((el.style.opacity -= 0.005) < 0) {
                     el.style.display = "none";
-                    end();
+                    setTimeout(function () {
+                        end();
+                    }, 0);
                 } else {
                     requestAnimationFrame(fade);
                 }
@@ -57,7 +59,9 @@ window.ZLImage = (function () {
                 el.style.filter = "alpha(opacity="+ ie8opacity +")";
                 if ((ie8opacity -= 0.6) < 0) {
                     el.style.display = "none";
-                    end();
+                    setTimeout(function () {
+                        end();
+                    }, 0);
                 } else {
                     requestAnimationFrame(fade);
                 }
