@@ -50,7 +50,7 @@
 </head>
 <body>
     <!-- 你必须自己添加一个fallback background-color -->
-    <div class="zl-image" style="width:800px; height:576px; background-color:#D3DBE6;">
+    <div class="zl-image large" style="width:800px; height:576px; background-color:#D3DBE6;">
         <img class="zl-image-trueimage full-parent"  data-src="images/wallhaven-387383.jpg" data-imagetype="origin">
         <!--<img class="zl-image-trueimage" style="width:800px; height:576px;" data-src="tmp/webp/wallhaven-387383.webp" data-imagetype="origin">-->
         <!--[if gt IE 8]><!-->
@@ -67,19 +67,19 @@
 <script>
     var zlimages = ZLImage.init(document.querySelectorAll('.zl-image'));
 
-//    zlimages[0].show();
-//
-//    // 隔3.5s 加载一张图片呢
-//    var index = 1;
-//    var time = setInterval(function () {
-//        if (!window.zlimageLock) {
-//            if (index < zlimages.length) {
-//                zlimages[index].show();
-//                index++;
-//            } else {
-//                clearInterval(time);
-//            }
-//        }
-//    }, 3500);
+    zlimages[0].show();
+
+    // 隔3.5s 加载一张图片呢
+    var index = 1;
+    var time = setInterval(function () {
+        if (!window.zlimageLock) {
+            if (index < zlimages.length) {
+                zlimages[index].show();
+                index++;
+            } else {
+                clearInterval(time);
+            }
+        }
+    }, 3500);
 </script>
 </html>
