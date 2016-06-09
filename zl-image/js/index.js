@@ -109,7 +109,7 @@ window.ZLImage = (function () {
                                 if (outNode.children.length < 0) {
                                     throw new Error("picture must have img");
                                 }
-                                for ( var innerIndex = 0; innerIndex < outNode.children;  innerIndex++) {
+                                for ( var innerIndex = 0; innerIndex < outNode.children.length;  innerIndex++) {
                                     originImage = handleInnerNode(outNode.children, innerIndex);
                                 }
                             } else {

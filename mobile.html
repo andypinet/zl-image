@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />  
+  <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /*zl-image custom*/
+        .zl-image.custom {
+            background-color:#E5CFD6;
+            padding-top:114.3%;
+        }
+
+    </style>
+    <script src="lib/picturefill.min.js"></script>
+    <script src="lib/antimoderate.min.js"></script>
+    <link rel="stylesheet" href="zl-image/css/index.css">
+    <script src="zl-image/js/index.js"></script>
+</head>
+<body>
+    <div class="zl-image custom">
+        <picture class="zl-picture" data-imagetype="origin">
+            <source srcset="images/ios/plus/1.jpg" media="(min-width: 414px)" />
+            <source srcset="images/ios/media/1.jpg" media="(min-width: 360px)" />
+            <img srcset="images/ios/small/1.jpg" alt="">
+        </picture>
+        <img
+        src="data:image/jpg;base64, /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACMDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAUGBwQCA//EAC0QAAIBAwMDBAECBwAAAAAAAAECAwQFEQAhMQYSQRMUIlFxQoEVIyRSYZGh/8QAGgEAAgMBAQAAAAAAAAAAAAAAAwUAAQQCBv/EACYRAAICAQIEBwEAAAAAAAAAAAECABEDBBITITGxIzNBUVJhoXH/2gAMAwEAAhEDEQA/ANFpesaQTKjkqoxkqudtdFF1hHXTye0gapQsRhVICYPkkAb+NznGs1ktlTHSlqilf28gIZmGFI878Y05mqY7DQI1LSXWOiWFfbxSx+qrsRg4j/SfIycAcDnWzWYkVlKn96zLo2ZwQRy7R1db1V3mOaWzxiNFf0pGZx6ncDggIB4/Of8AWoy91MbyPE8sjzR/Bv5fYCw2JOdxqhtNHcKmjkmtUcQpC7SbzsjysSc4A2BAJwfOfvifrVq7jLKphheaWc5SFs/P9WX22H0cYJ1ehyrxiN31JrPKCBao9a5mT5Iz50aZvb5InaM22oZkPaxyRuNj4+9GnW4RVRlg1PV11ZDS1KNV28SL3iH5LgH7bYfvr11Qsk1mf00lQUw+TtIWY5+We0DOwzuM8affxuG5P7QAtRhGNRkdu/KgeDwQfrWb9b3B6W4W6KeearZlkM5y0ZMYKkKQeATgFjk/H6215vVNxWWhVR7o14Smzcb2imXpt6ioir0rIDBFKYe2QdxfJRjnGxGOP31SUs7WeouD1tTb1ao7T6VP8mHav6sbd24H4GsXobhN70XEI9RHEgP9SxdgpPaMttxwNsb8a1aw1dsh6cNRHTvKInGIlYdwDeS2OP8AJzoOJQMltOdQ98gf4O8Zp1xNTL6VPZpWiXhmkwTncnGPJ0a4Y+swI1HtAuBwzgkf80aY78Hx/TMfje/aIayohjo6uleuX15o2iYSuUI7jsNsgH8fWkN5sb3a7U8Hu6q41s0QkdpcYjQqpUZUn+3GNtvzo0aBjUE2Yd3ZVKg+s+M/T1xslJMrIyLPC0ePDoxyRvxggHVF0zWw19toIqmEsXjaGSRdgoXuChgPwBnfnRo1MgWgwErGWraTc4JraplJWmlZSAV7MEAEbDnxxo0aNDud7Z//2Q=="
+        class="zl-image-antimoderate" data-imagetype="default">
+    </div>
+    <script>
+        var zlimages = ZLImage.init(document.querySelectorAll('.zl-image'));
+
+        zlimages[0].show();
+
+        // 隔3.5s 加载一张图片呢
+        var index = 1;
+        var time = setInterval(function () {
+            if (!ZLImage.lock) {
+                if (index < zlimages.length) {
+                    zlimages[index].show();
+                    index++;
+                } else {
+                    clearInterval(time);
+                }
+            }
+        }, 3500);
+    </script>
+</body>
+</html>
